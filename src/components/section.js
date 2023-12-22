@@ -5,7 +5,7 @@ import saveIcon from "../assets/icons/reshot-icon-checkmark-GVRAE73C9Z.svg";
 import NumericInput from './numericInput'; 
 
 
-const CollapsibleSection = ({ EachSection }) => {
+const CollapsibleSection = ({ EachSection, onBlur }) => {
     const [isVisible, setIsVisible] = useState(false);
     const toggleVisibility = () => {
         setIsVisible(!isVisible);
@@ -23,7 +23,7 @@ const CollapsibleSection = ({ EachSection }) => {
             index === id ? { ...data, amount: Number(newValue), isEditing: false } : data
         );
         setDataValuesList(updatedDataList);
-        console.log([...updatedDataList])
+        onBlur(updatedDataList);
     };
 
     return (
